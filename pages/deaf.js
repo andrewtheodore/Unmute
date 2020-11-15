@@ -38,15 +38,35 @@ export default function Home() {
         })
         .catch((error) => {})
         .finally(() => {})
-        if(data != lastmsg){
+        if(data != lastmsg && data != undefined){
             var obj = { msg: data, user: 0}
             var teks = [...text, obj];
             // teks.concat(obj)
+            aa(data)
             console.log(data)
             console.log(lastmsg)
             setText(teks)
             setLastmsg(data)
         }
+    }
+
+    const aa = (a) => {
+        const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
+        const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
+    
+        const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+        synthesizer.speakTextAsync(
+            a,
+            result => {
+                if (result) {
+                    // console.log(JSON.stringify(result));
+                }
+                synthesizer.close();
+            },
+            error => {
+                // console.log(error);
+                synthesizer.close();
+            });
     }
 
     // useEffect(async () => {
@@ -108,9 +128,9 @@ export default function Home() {
             setText(teks)
             setMsg("")
             await axios
-                .post("https://unmuteapi.azurewebsites.net/post_text", {
-                converted_text: msg
-                })
+                .post("https://unmuteapi.azurewebsites.net/send_text", 
+                    "converted_text=" + data
+                )
                 .then((resp) => {
                     console.log(resp.data)
                 })
@@ -120,7 +140,7 @@ export default function Home() {
       }
 
     return (
-        <Style>
+        <Style onClick={() => passtext()} >
             <div className="topnavbar">
                 <div className="navbar">
                     <img src="logo_v1 1.png" className="imagelogo" /> 
@@ -141,7 +161,7 @@ export default function Home() {
                         <img src="call.png" className="contactimage" />
                     </div>
                 </div>
-                <div className="secondwrapper" onClick={() => passtext()} >
+                <div className="secondwrapper">
                     <input className="input" placeholder="Search call / meeting" />
                     <div className="newmeeting">
                         Start a new meeting
@@ -174,7 +194,7 @@ export default function Home() {
                             End Meeting
                         </div>
                     </div>
-                    <div className="chatright" onClick={() => passtext()}>
+                    <div className="chatright">
                         <div>
                             <div className="chatt">
                                 {text.map((data, index) => (
@@ -199,7 +219,7 @@ export default function Home() {
                                 ></textarea>
                             </div>
                         </div>
-                        <div className="rightchatsection" onClick={() => passtext()}>
+                        <div className="rightchatsection">
                             <div className="rightbox">
                                 <div className="topbox">
                                     Excuse Me

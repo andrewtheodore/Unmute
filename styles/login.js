@@ -2,6 +2,8 @@ import styled from "styled-components"
 
 export const Style = styled.div`
 background-color: #E5E5E5;
+height: 100rem;
+
 .imagelogo{
     width: 5.625rem;
     height: 5.625rem;

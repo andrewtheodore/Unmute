@@ -28,9 +28,9 @@ export default function Home() {
             setText(teks)
             console.log(`RECOGNIZED: Text=${result.text}`);
             await axios
-                .post("https://unmuteapi.azurewebsites.net/send_text", {
-                    converted_text: data
-                })
+                .post("https://unmuteapi.azurewebsites.net/send_text", 
+                    "converted_text=" + data
+                )
                 .then((resp) => {
                     console.log(resp.data)
                 })
@@ -57,14 +57,14 @@ export default function Home() {
 
     const passtext = async() => {
         var data
-        await console.log("passtext")
-        await axios.get("https://unmuteapi.azurewebsites.net/pass_text")
+        console.log("passtext")
+        axios.get("https://unmuteapi.azurewebsites.net/pass_text")
         .then((resp) => {
             data = resp.data
         })
         .catch((error) => {})
         .finally(() => {})
-        if(data != lastmsg){
+        if(data != lastmsg && data != undefined){
             var obj = { msg: data, user: 0}
             var teks = [...text, obj];
             // teks.concat(obj)
@@ -76,7 +76,7 @@ export default function Home() {
     }
 
     return (
-        <Style>
+        <Style  onClick={() => passtext()} >
             <div className="topnavbar">
                 <div className="navbar">
                     <img src="logo_v1 1.png" className="imagelogo" /> 
@@ -89,7 +89,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="midwrapper" onClick={() => passtext()}>
+            <div className="midwrapper">
                 {text.map((data, index) => (
                     <div>
                         {data.user == 1 ? 
@@ -106,7 +106,7 @@ export default function Home() {
                     </div>
                 ))}
             </div>
-            <div className="bottomwrapper" onClick={() => passtext()}>
+            <div className="bottomwrapper">
                 <div className="id">
                     ID: 471232327
                 </div>
