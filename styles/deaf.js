@@ -14,12 +14,14 @@ background-color: #E5E5E5;
     flex-direction: row;
     padding-top: 1.5rem;
     height: 139px;
+    background-color: #f6fff8;
 }
 
 .navbartext{
+
     font-family: Poppins;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 24px;
     line-height: 50px;
 
@@ -104,6 +106,8 @@ background-color: #E5E5E5;
     .middlewrapper{
         display: flex;
         flex-direction: row;
+
+        background-color: #e8f6eb;
     }
 
     .input{
@@ -274,6 +278,8 @@ margin-left: 1rem;
 
 .rightchatsection{
     height: 800px;
+
+    background-color: #ffffff;
 }
 
 .rightbox{
@@ -324,7 +330,8 @@ height: 80px;
 
 
 .inputuser{
-    width: 1083px;
+    margin: 1rem;
+    width: 1043px;
 height: 99px;
 
 white-space: pre-wrap;
@@ -342,5 +349,9 @@ font-size: 16px;
 line-height: 24px;
 
 color: rgba(0, 0, 0, 0.5);
+}
+
+.typeboxwrapper{
+    background-color: #ffffff;
 }
 `

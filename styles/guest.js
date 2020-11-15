@@ -2,23 +2,20 @@ import styled from "styled-components"
 
 export const Style = styled.div`
 background-color: #E5E5E5;
-.imagelogo{
-    width: 5.625rem;
-    height: 5.625rem;
-
-    margin-left: 3.75rem;
-}
 
 .topnavbar{
     display: flex;
     flex-direction: row;
     padding-top: 1.5rem;
+    height: 139px;
+    background-color: #f6fff8;
 }
 
 .navbartext{
+
     font-family: Poppins;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 24px;
     line-height: 50px;
 
@@ -33,11 +30,23 @@ background-color: #E5E5E5;
 }
 .navbardesc{
     margin-left: 3rem;
+
+}
+
+.navbarteks{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
 }
 
 .loginbox{
+
+    margin-top: -8px;
     width: 125px;
     height: 50px;
+    line-height: 50px;
 
     text-align: center;
 
@@ -203,9 +212,18 @@ margin-left: 658px;
     margin-left: 41px;
 }
 
+
+.imagelogo{
+    width: 48px;
+    height: 53px;
+
+    margin-left: 3.75rem;
+}
 .midwrapper{
-    margin-top: 50px;
-    height: 675px;
+    padding-top: 50px;
+    height:720px;
+
+    background-color: #E8F6EB;
 }
 
 .rightbubblechat{

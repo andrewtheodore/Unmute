@@ -128,8 +128,8 @@ export default function Home() {
             setText(teks)
             setMsg("")
             await axios
-                .post("https://unmuteapi.azurewebsites.net/send_text", 
-                    "converted_text=" + data
+                .post("https://unmuteapi.azurewebsites.net/post_text", 
+                    "converted_text=" + msg
                 )
                 .then((resp) => {
                     console.log(resp.data)
@@ -149,7 +149,7 @@ export default function Home() {
                     <div className="navbarteks">Feedback</div>
                     <div className="navbarteks navbardesc">Settings</div>
                     <div className="navbarteks navbardesc">About Us</div>
-                    <div className="navbarteks navbardesc loginbox">Login</div>
+                    <div className="navbarteks navbardesc loginbox">Sign out</div>
                 </div>
             </div>
             <div className="middlewrapper">
@@ -213,7 +213,7 @@ export default function Home() {
                                     </div>
                                 ))}
                             </div>
-                            <div>
+                            <div className="typeboxwrapper">
                                 <textarea className="inputuser" value={msg} onChange={(e) => setMsg(e.target.value)}
                                 onKeyPress={EnterMessage}
                                 ></textarea>

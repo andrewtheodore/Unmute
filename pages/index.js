@@ -29,7 +29,7 @@ export default function Home() {
             console.log(`RECOGNIZED: Text=${result.text}`);
             await axios
                 .post("https://unmuteapi.azurewebsites.net/send_text", 
-                    "converted_text=" + data
+                    "converted_text=" + res
                 )
                 .then((resp) => {
                     console.log(resp.data)
@@ -54,12 +54,31 @@ export default function Home() {
         // }
     }
 
+    const synthesizeSpeech = (mess) => {
+        const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
+        const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
+    
+        const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+        synthesizer.speakTextAsync(
+            mess,
+            result => {
+                if (result) {
+                    // console.log(JSON.stringify(result));
+                }
+                synthesizer.close();
+            },
+            error => {
+                // console.log(error);
+                synthesizer.close();
+            });
+    }
 
     const passtext = async() => {
         var data
         console.log("passtext")
-        axios.get("https://unmuteapi.azurewebsites.net/pass_text")
+        await axios.get("https://unmuteapi.azurewebsites.net/pass_text")
         .then((resp) => {
+            console.log(resp.data)
             data = resp.data
         })
         .catch((error) => {})
@@ -70,6 +89,7 @@ export default function Home() {
             // teks.concat(obj)
             console.log(data)
             console.log(lastmsg)
+            synthesizeSpeech(data)
             setText(teks)
             setLastmsg(data)
         }
@@ -82,10 +102,10 @@ export default function Home() {
                     <img src="logo_v1 1.png" className="imagelogo" /> 
                 </div>
                 <div className="navbartext">
-                    <div>Feedback</div>
-                    <div className="navbardesc">Settings</div>
-                    <div className="navbardesc">About Us</div>
-                    <div className="navbardesc loginbox">Login</div>
+                    <div className="navbarteks">Feedback</div>
+                    <div className="navbarteks navbardesc">Settings</div>
+                    <div className="navbarteks navbardesc">About Us</div>
+                    <div className="navbarteks navbardesc loginbox">Sign out</div>
                 </div>
             </div>
 
