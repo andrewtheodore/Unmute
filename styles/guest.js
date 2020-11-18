@@ -21,7 +21,7 @@ background-color: #E5E5E5;
 
     color: #000000;
 
-    margin-left: 60%;
+    margin-left: 56%;
 
     display: flex;
     flex-direction: row;
@@ -155,9 +155,11 @@ a:link, a:visited {
 .bottomwrapper{
     height: 109px;
     background: #FFFFFF;
+    width: 100%;
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .id{
     font-family: Poppins;
@@ -181,6 +183,8 @@ a:link, a:visited {
     width: 225px;
     height: 50px;
 
+    margin-right: 60px;
+
     background: #FF0000;
     box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -197,7 +201,7 @@ text-align: center;
 color: #FFFFFF;
 
 margin-top: 37px;
-margin-left: 658px;
+// margin-left: 658px;
 }
 
 .leftbubblechat{
@@ -222,7 +226,7 @@ margin-left: 658px;
 }
 .midwrapper{
     padding-top: 50px;
-    height:720px;
+    height: 680px;
     overflow: auto;
 
     background-color: #E8F6EB;
@@ -265,7 +269,7 @@ margin-left: 658px;
     height: 65px;
 
 
-    margin-left: 694px;
+    // margin-left: 100%;
     margin-top: 33px;
     cursor: pointer;
 }

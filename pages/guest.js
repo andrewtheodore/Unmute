@@ -144,15 +144,9 @@ export default function Home({ name }) {
                     ID: 471232327
                 </div>
                 <div className="">
-                    {/* {button ?  */}
                     <div className="nottalkingbutton">
                         <img src="mic.png" className="micimage" onClick={() => fromMic()} />
                     </div>
-                    {/* :
-                    <div className="talkingbutton">
-                        <img src="micwhite.png" className="micimage" onClick={() => stoptalking()} />
-                    </div>
-                    } */}
                 </div>
                 <div className="leavemeeting">
                     Leave Meeting
