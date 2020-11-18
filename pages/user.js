@@ -79,7 +79,7 @@ export default function Home({ name }) {
                 if (result) {
                     // console.log(JSON.stringify(result));
                 }
-                synthesizer.close();
+                synthesizer.close(); 
             },
             error => {
                 // console.log(error);
