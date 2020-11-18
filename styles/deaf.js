@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Style = styled.div`
 background-color: #FFFFFF;
+
 .imagelogo{
     width: 48px;
     height: 53px;
@@ -21,7 +22,7 @@ background-color: #FFFFFF;
 
     font-family: Poppins;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     line-height: 50px;
 
@@ -96,10 +97,14 @@ background-color: #FFFFFF;
     }
 
     .secondwrapper{
-        width: 18%;
+        width: 17.6%;
         height: auto;
 
         background: #FFFFFF;
+    }
+
+    .ddd{
+        width: 59.6%;
     }
 
     .middlewrapper{
@@ -119,8 +124,6 @@ background-color: #FFFFFF;
         height: 36px;
 
         margin-top: 21px;
-        margin-left: 10px;
-
         padding-left: 5px;
 
         font-family: Poppins;
@@ -130,6 +133,11 @@ background-color: #FFFFFF;
         line-height: 24px;
         color: rgba(0, 0, 0, 0.5);
 
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 
     .newmeeting{
@@ -137,20 +145,21 @@ background-color: #FFFFFF;
         border-radius: 8px;
 
         width: 90%;
-height: 56px;
+        height: 56px;
 
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 56px;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 56px;
 /* identical to box height */
 
 text-align: center;
 
 color: #FFFFFF;
 
-margin-left: 10px;
+margin-left: auto;
+margin-right: auto;
 margin-top: 16px;
     }
 
@@ -185,7 +194,7 @@ margin-top: 16px;
 }
 
 .chatsection{
-    width: 900px;
+    width: 77.3%;
 }
 
 .midwrapper{
@@ -282,7 +291,7 @@ margin-left: 1rem;
 
 .rightchatsection{
     height: auto;
-
+    width: 17.7%;
     background-color: #ffffff;
 }
 
@@ -352,6 +361,8 @@ font-style: normal;
 font-weight: normal;
 font-size: 16px;
 line-height: 24px;
+
+margin: 0 auto;
 
 color: rgba(0, 0, 0, 0.5);
 }

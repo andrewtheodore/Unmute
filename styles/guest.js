@@ -15,7 +15,7 @@ background-color: #E5E5E5;
 
     font-family: Poppins;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     line-height: 50px;
 
