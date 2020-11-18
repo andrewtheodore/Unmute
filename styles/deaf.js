@@ -283,7 +283,7 @@ margin-left: 1rem;
 }
 
 .chatt{
-    width: 1000px;
+    width: 950px;
     height: 600px;
     overflow: auto;
     background-color: #e8f6eb;
@@ -345,7 +345,7 @@ height: 80px;
 
 .inputuser{
     margin: 1rem;
-    width: 983px;
+    width: 953px;
     height: 99px;
 
 white-space: pre-wrap;
