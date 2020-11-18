@@ -253,7 +253,6 @@ padding-left: 2rem;
 
     display: flex;
     flex-direction: row;
-    width: 1354px;
     height: 85px;
 }
 .endmeeting{
