@@ -1,11 +1,10 @@
 import styled from "styled-components"
 
 export const Style = styled.div`
-background-color: #E5E5E5;
+background-color: #FFFFFF;
 .imagelogo{
     width: 48px;
     height: 53px;
-
     margin-left: 3.75rem;
 }
 
@@ -106,7 +105,7 @@ background-color: #E5E5E5;
         display: flex;
         flex-direction: row;
 
-        background-color: #e8f6eb;
+        // background-color: #e8f6eb;
     }
 
     .input{
@@ -275,6 +274,7 @@ margin-left: 1rem;
     width: 1000px;
     height: 600px;
     overflow: auto;
+    background-color: #e8f6eb;
 }
 
 .rightchatsection{
@@ -354,5 +354,34 @@ color: rgba(0, 0, 0, 0.5);
 
 .typeboxwrapper{
     background-color: #ffffff;
+}
+
+.bubblename{
+    font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+
+color: #6B9080;
+
+}
+
+
+.time{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+    color: rgba(0, 0, 0, 0.47);
+    margin-top: 3px;
+}
+
+.timeleft{
+    text-align: left;
 }
 `

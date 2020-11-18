@@ -5,7 +5,12 @@ import fire from "../config/fire-config"
 import firebase from "firebase/app"
 import "firebase/firestore"
 
-export default function Home() {
+Home.getInitialProps = async (ctx) => {
+    return { name : ctx.query.name }
+}
+
+export default function Home({ name }) {
+    console.log(name)
     const [text, setText] = useState([])
     const [msg, setMsg] = useState("")
     const [lastmsg, setLastmsg] = useState("")
@@ -105,7 +110,7 @@ export default function Home() {
             var db = firebase.firestore()
             setMsg("")
               var data = {
-                from: "2",
+                from: name,
                 message: msg,
                 timestamp: Date.now(),
               }
@@ -118,6 +123,19 @@ export default function Home() {
                   messages: firebase.firestore.FieldValue.arrayUnion(data),
                 })
         }
+      }
+
+      const GetTimeStamp = (date) => {    
+        var myDate = new Date(date)
+        var minutes = myDate.getMinutes()
+        var hour = myDate.getHours()
+        if(minutes < 10){
+            minutes = "0" + minutes 
+        }
+        if(hour < 10){
+            hour = "0" + hour
+        }
+        return hour + ":" + minutes
       }
 
     return (
@@ -180,15 +198,27 @@ export default function Home() {
                             <div className="chatt">
                                 {text.map((data, index) => (
                                     <div>
-                                        {data.from == "2" ? 
+                                        {data.from == name ? 
                                             <div className="rightchatbubble" key={index}>
                                             <div className="bubblechat rightbubblechat">
-                                                {data.message}
+                                                <div className="bubblename">{data.from}</div>
+                                                <div>
+                                                    {data.message}
+                                                </div>
+                                                <div className="time timeleft">
+                                                    {GetTimeStamp(data.timestamp)}
+                                                </div>    
                                             </div>
                                         </div>
                                         :
                                         <div className="bubblechat leftbubblechat"> 
-                                            {data.message}
+                                            <div className="bubblename">{data.from}</div>
+                                            <div>
+                                                {data.message}
+                                            </div>
+                                            <div className="time ">
+                                                {GetTimeStamp(data.timestamp)}
+                                            </div>    
                                         </div>
                                         }
                                     </div>

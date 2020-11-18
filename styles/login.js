@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const Style = styled.div`
-background-color: #E5E5E5;
-height: 100vh;
+    background-color: #F6FFF8;
+    height: 100vh;
 
 .imagelogo{
     width: 5.625rem;
@@ -306,6 +306,8 @@ height: 65px;
     justify-content: center;
     align-items: center;
 
+    padding-left: 20px;
+
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;
@@ -317,6 +319,10 @@ height: 65px;
     align-items: center;
 
     color: #605E5C;
+}
+
+.whitetext{
+    color: #FFFFFF;
 }
 
 .loginboxmodal{
@@ -337,6 +343,7 @@ height: 65px;
     box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.1);
 
     margin-top: 40px;
+    cursor: pointer;
     margin-left: auto;
     margin-right: auto;
 }

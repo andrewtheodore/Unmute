@@ -289,5 +289,32 @@ margin-left: 658px;
     cursor: pointer;
 }
 
+.bubblename{
+    font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+
+color: #6B9080;
+
+}
+
+
+.time{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+
+    color: rgba(0, 0, 0, 0.47);
+
+    margin-top: 3px;
+
+}
 
 `

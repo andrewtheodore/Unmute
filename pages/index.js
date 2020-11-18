@@ -5,10 +5,11 @@ import Link from 'next/link'
 
 export default function Home() {
     const [edit, setEdit] = useState(false)
+    const [name, setName] = useState("")
+    const [username, setUsername] = useState("")
 
     return (
         <Style>
-
         {edit && (
             <div>
                 <div className="modal">
@@ -16,11 +17,23 @@ export default function Home() {
                         <div className="modaltitle">
                             Log in to your account
                         </div>
-                        <input className="usernamebox" placeholder="Username / Email"
+                        <input className="usernamebox"  placeholder="Username / Email"
+                            value={username}
+                            onChange={() => setUsername(event.target.value)}
                         />
                         <input className="usernamebox" placeholder="Password"
                         />
-                        <div className="loginboxmodal">Login</div>
+                        <div className="loginboxmodal">
+
+                            <Link href={{
+                                pathname: "/user",
+                                query: { name: username },
+                                }}>
+                                    <div>
+                                        Login
+                                    </div>
+                            </Link>
+                        </div>
                         <div className="linecontainer">
                             <div className="line"></div>
                             <div className="or">Or</div>
@@ -35,7 +48,7 @@ export default function Home() {
                         <div className="appbutton">
                             <img src="/facebook.png" className="applogo"></img>
                             <div className="signin">
-                                Sign in with Google 
+                                Sign in with Facebook 
                             </div>
                         </div>
                         <div className="appbutton">
@@ -67,12 +80,18 @@ export default function Home() {
                     <div className="fullnametitle">
                         Enter your full name
                     </div>
-                    <input placeholder="Full name" className="fullnameinput" />
+                    <input placeholder="Full name" 
+                    value={name}
+                    onChange={() => setName(event.target.value)}
+                    className="fullnameinput" />
                     <div className="meetingid">
                         Meeting ID
                     </div>
                     <input placeholder="Meeting ID" className="fullnameinput" />
-                    <Link href="/">
+                    <Link href={{
+                          pathname: "/guest",
+                          query: { name: name },
+                        }}>
                         <a>
                             <div className="startbutton" href="guest.html">
                                 Start

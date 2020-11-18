@@ -5,8 +5,14 @@ import axios from 'axios';
 import fire from "../config/fire-config"
 import firebase from "firebase/app"
 import "firebase/firestore"
+import { useRouter } from 'next/router'
 
-export default function Home({ InitText }) {
+Home.getInitialProps = async (ctx) => {
+    return { name : ctx.query.name }
+}
+
+export default function Home({ name }) {
+    console.log(name)
     const [text, setText] = useState([])
     const [lastmsg, setLastmsg] = useState("")
     const [button, setButton] = useState(true)
@@ -24,28 +30,6 @@ export default function Home({ InitText }) {
     const sdk = require("microsoft-cognitiveservices-speech-sdk");
     const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
 
-    const sendMessage = async (id, msg) => {
-        if (msg == "") {
-          return
-        }
-        var db = firebase.firestore()
-        var data = {
-          from: coachID,
-          message: msg,
-          timestamp: Date.now(),
-        }
-        
-        let chatid = coachID + "-" + id
-        await db
-          .collection("chats")
-          .doc(chatid)
-          .update({
-            messages: firebase.firestore.FieldValue.arrayUnion(data),
-          })
-        await getMessages(id)
-        setUserMessage("")
-      }
-
     const fromMic = async() => {
         setButton(false)
         let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
@@ -60,9 +44,10 @@ export default function Home({ InitText }) {
             if (res == "") {
                 return
               }
+              console.log(name)
               var db = firebase.firestore()
               var data = {
-                from: "1",
+                from: name,
                 message: res,
                 timestamp: Date.now(),
               }
@@ -96,6 +81,19 @@ export default function Home({ InitText }) {
             });
     }
 
+    const GetTimeStamp = (date) => {    
+        var myDate = new Date(date)
+        var minutes = myDate.getMinutes()
+        var hour = myDate.getHours()
+        if(minutes < 10){
+            minutes = "0" + minutes 
+        }
+        if(hour < 10){
+            hour = "0" + hour
+        }
+        return hour + ":" + minutes
+      }
+
     return (
         <Style >
             <div className="topnavbar">
@@ -113,15 +111,27 @@ export default function Home({ InitText }) {
             <div className="midwrapper">
                 {text.map((data, index) => (
                     <div>
-                        {data.from == 1 ? 
+                        {data.from == name ? 
                             <div className="rightchatbubble" key={index}>
                                 <div className="bubblechat rightbubblechat">
-                                    {data.message}
+                                    <div className="bubblename">{data.from}</div>
+                                    <div>
+                                        {data.message}
+                                    </div>
+                                    <div className="time">
+                                        {GetTimeStamp(data.timestamp)}
+                                    </div>    
                                 </div>
                             </div>
                         :
                         <div className="bubblechat leftbubblechat"> 
-                            {data.message}
+                            <div className="bubblename">{data.from}</div>
+                            <div>
+                                {data.message}
+                            </div>
+                            <div className="time">
+                                {GetTimeStamp(data.timestamp)}
+                            </div>    
                         </div>
                         }
                     </div>
