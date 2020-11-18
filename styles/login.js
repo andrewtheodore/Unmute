@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Style = styled.div`
 background-color: #E5E5E5;
-height: 100rem;
+height: 100vh;
 
 .imagelogo{
     width: 5.625rem;
@@ -26,7 +26,7 @@ height: 100rem;
 
     color: #000000;
 
-    margin-left: 1106px;
+    margin-left: 55%;
 
     display: flex;
     flex-direction: row;
@@ -66,7 +66,7 @@ height: 100rem;
     height: 690px;
 
     margin-left: 140px;
-    margin-top: 94px;
+    margin-top: 54px;
 }
 
 .fullnametitle{
@@ -83,7 +83,7 @@ color: #475F54;
 }
 
 .leftwrapper{
-    margin-top: 234px;
+    margin-top: 184px;
     margin-left: 250px;
 }
 

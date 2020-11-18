@@ -198,6 +198,7 @@ margin-top: 16px;
 
     background: #CCE3DE;
     border-radius: 8px;text-align: right;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 }
 
 .bubblechat{
