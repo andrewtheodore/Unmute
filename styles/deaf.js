@@ -284,7 +284,7 @@ margin-left: 1rem;
 
 .chatt{
     width: 950px;
-    height: 600px;
+    height: 652px;
     overflow: auto;
     background-color: #e8f6eb;
     padding-top: 32px;
