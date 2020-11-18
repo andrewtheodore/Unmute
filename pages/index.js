@@ -13,6 +13,9 @@ export default function Home() {
             <div>
                 <div className="modal">
                     <div className="modal-content">
+                        <div className="modaltitle">
+                            Log in to your account
+                        </div>
                     </div>
                 </div>
             </div>

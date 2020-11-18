@@ -222,6 +222,7 @@ margin-left: 658px;
 .midwrapper{
     padding-top: 50px;
     height:720px;
+    overflow: auto;
 
     background-color: #E8F6EB;
 }

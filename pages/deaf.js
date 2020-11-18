@@ -117,16 +117,6 @@ export default function Home() {
                 .update({
                   messages: firebase.firestore.FieldValue.arrayUnion(data),
                 })
-
-            // await axios
-            //     .post("https://unmuteapi.azurewebsites.net/post_text", 
-            //         "converted_text=" + msg
-            //     )
-            //     .then((resp) => {
-            //         console.log(resp.data)
-            //     })
-            //     .catch((error) => {})
-            //     .finally(() => {})
         }
       }
 
