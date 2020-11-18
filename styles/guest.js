@@ -21,7 +21,7 @@ background-color: #E5E5E5;
 
     color: #000000;
 
-    margin-left: 56%;
+    margin-left: 55%;
 
     display: flex;
     flex-direction: row;
