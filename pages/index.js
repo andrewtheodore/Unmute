@@ -1,152 +1,55 @@
 import Head from 'next/head'
-import React, { useState, useEffect } from 'react';
-import { Style } from "../styles/guest"
-import axios from 'axios';
-import fire from "../config/fire-config"
-import firebase from "firebase/app"
-import "firebase/firestore"
+import React, { useState } from 'react';
+import { Style } from "../styles/login"
+import Link from 'next/link'
 
-export default function Home({ InitText }) {
-    const [text, setText] = useState([])
-    const [lastmsg, setLastmsg] = useState("")
-    const [button, setButton] = useState(true)
-
-    useEffect(async() => {
-        var db = fire.firestore()
-        let data_message = []
-        let chatid = "1-2"
-        var text
-        await db.collection("chat").doc(chatid).onSnapshot(function(doc) {
-        // setMessage(doc.data().messages)
-        // console.log(doc.data().messages)
-        setText(doc.data().messages)
-        // text = doc.data().messages
-        })
-      }, []);
-
-    const sdk = require("microsoft-cognitiveservices-speech-sdk");
-    const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
-
-    const sendMessage = async (id, msg) => {
-        if (msg == "") {
-          return
-        }
-        var db = firebase.firestore()
-        var data = {
-          from: coachID,
-          message: msg,
-          timestamp: Date.now(),
-        }
-        
-        let chatid = coachID + "-" + id
-        await db
-          .collection("chats")
-          .doc(chatid)
-          .update({
-            messages: firebase.firestore.FieldValue.arrayUnion(data),
-          })
-        await getMessages(id)
-        setUserMessage("")
-      }
-
-    const fromMic = async() => {
-        setButton(false)
-        let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-        let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-        var data = ""
-        
-        console.log('Speak into your microphone.');
-        recognizer.recognizeOnceAsync(async (result) => {
-            data = `${result.text}`
-            var res = `${result.text}`
-
-            if (res == "") {
-                return
-              }
-              var db = firebase.firestore()
-              var data = {
-                from: "1",
-                message: res,
-                timestamp: Date.now(),
-              }
-              
-              let chatid = "1-2"
-              await db
-                .collection("chat")
-                .doc(chatid)
-                .update({
-                  messages: firebase.firestore.FieldValue.arrayUnion(data),
-                })
-        });
-    }
-
-    const synthesizeSpeech = (mess) => {
-        const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
-        const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
-    
-        const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
-        synthesizer.speakTextAsync(
-            mess,
-            result => {
-                if (result) {
-                    // console.log(JSON.stringify(result));
-                }
-                synthesizer.close();
-            },
-            error => {
-                // console.log(error);
-                synthesizer.close();
-            });
-    }
+export default function Home() {
+    const [edit, setEdit] = useState(true)
 
     return (
-        <Style >
+        <Style>
+
+        {edit && (
+            <div>
+                <div className="modal">
+                    <div className="modal-content">
+                    </div>
+                </div>
+            </div>
+        )}
+
+
             <div className="topnavbar">
                 <div className="navbar">
                     <img src="logo_v1 1.png" className="imagelogo" /> 
                 </div>
                 <div className="navbartext">
-                    <div className="navbarteks">Feedback</div>
-                    <div className="navbarteks navbardesc">Settings</div>
-                    <div className="navbarteks navbardesc">About Us</div>
-                    <div className="navbarteks navbardesc loginbox">Sign out</div>
+                    <div>Feedback</div>
+                    <div className="navbardesc">Settings</div>
+                    <div className="navbardesc">About Us</div>
+                    <div className="navbardesc loginbox">Login</div>
                 </div>
             </div>
-
-            <div className="midwrapper">
-                {text.map((data, index) => (
-                    <div>
-                        {data.from == 1 ? 
-                            <div className="rightchatbubble" key={index}>
-                                <div className="bubblechat rightbubblechat">
-                                    {data.message}
-                                </div>
+            <div className="loginbody">
+                <div className="leftwrapper">
+                    <div className="fullnametitle">
+                        Enter your full name
+                    </div>
+                    <input placeholder="Full name" className="fullnameinput" />
+                    <div className="meetingid">
+                        Meeting ID
+                    </div>
+                    <input placeholder="Meeting ID" className="fullnameinput" />
+                    <Link href="/">
+                        <a>
+                            <div className="startbutton" href="guest.html">
+                                Start
                             </div>
-                        :
-                        <div className="bubblechat leftbubblechat"> 
-                            {data.message}
-                        </div>
-                        }
-                    </div>
-                ))}
-            </div>
-            <div className="bottomwrapper">
-                <div className="id">
-                    ID: 471232327
+                        </a>
+                    </Link>
                 </div>
-                <div className="">
-                    {/* {button ?  */}
-                    <div className="nottalkingbutton">
-                        <img src="mic.png" className="micimage" onClick={() => fromMic()} />
-                    </div>
-                    {/* :
-                    <div className="talkingbutton">
-                        <img src="micwhite.png" className="micimage" onClick={() => stoptalking()} />
-                    </div>
-                    } */}
-                </div>
-                <div className="leavemeeting">
-                    Leave Meeting
+                <div>
+                    <img src="image 12.png" className="rightimage" /> 
                 </div>
             </div>
         </Style>
