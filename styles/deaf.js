@@ -114,7 +114,7 @@ background-color: #FFFFFF;
         box-sizing: border-box;
         border-radius: 8px;
 
-        width: 318px;
+        width: 90%;
         height: 36px;
 
         margin-top: 21px;
@@ -135,7 +135,7 @@ background-color: #FFFFFF;
         background: #6B9080;
         border-radius: 8px;
 
-        width: 318px;
+        width: 90%;
 height: 56px;
 
 font-family: Poppins;
@@ -198,6 +198,8 @@ margin-top: 16px;
     background: #CCE3DE;
     border-radius: 8px;text-align: right;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+
+    margin-right: 41px;
 }
 
 .bubblechat{
@@ -233,7 +235,7 @@ padding-left: 2rem;
     line-height: 85px;
     color: #000000;
 
-    margin-left: 508px;
+    margin-left: 528px;
 }
 
 .chatwrappertitle{
@@ -241,7 +243,7 @@ padding-left: 2rem;
 
     display: flex;
     flex-direction: row;
-    width: 1484px;
+    width: 1354px;
     height: 85px;
 }
 .endmeeting{
@@ -267,7 +269,7 @@ margin-left: 1rem;
 .chatright{
     display: flex;
     flex-direction: row;
-    width: 1484px;
+    width: 1184px;
 }
 
 .chatt{
