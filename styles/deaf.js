@@ -27,7 +27,7 @@ background-color: #FFFFFF;
     line-height: 50px;
 
     color: #000000;
-    margin-left: 58%;
+    margin-left: 56%;
 
     display: flex;
     flex-direction: row;
@@ -245,7 +245,7 @@ padding-left: 2rem;
     line-height: 85px;
     color: #000000;
 
-    margin-left: 528px;
+    margin-left: 478px;
 }
 
 .chatwrappertitle{
