@@ -65,7 +65,7 @@ export const Style = styled.div`
     width: 920px;
     height: 690px;
 
-    margin-left: 140px;
+    margin-left: 100px;
     margin-top: 54px;
 }
 
@@ -84,7 +84,7 @@ color: #475F54;
 
 .leftwrapper{
     margin-top: 184px;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 .fullnameinput{
