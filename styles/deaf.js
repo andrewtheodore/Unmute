@@ -245,7 +245,7 @@ padding-left: 2rem;
     line-height: 85px;
     color: #000000;
 
-    margin-left: 478px;
+    margin-left: 438px;
 }
 
 .chatwrappertitle{
