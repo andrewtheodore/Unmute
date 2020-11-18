@@ -21,7 +21,7 @@ background-color: #E5E5E5;
 
     color: #000000;
 
-    margin-left: 55%;
+    margin-left: 56%;
 
     display: flex;
     flex-direction: row;
@@ -226,7 +226,7 @@ margin-top: 37px;
 }
 .midwrapper{
     padding-top: 50px;
-    height: 630px;
+    height: 680px;
     overflow: auto;
 
     background-color: #E8F6EB;
