@@ -208,15 +208,15 @@ export default function Home({ name }) {
                         Microsoft APAC Hackathon
                     </div>
 
-                    <div className="usersegment useractive">
+                    <div className="usersegment">
                         Lorem Ipsum
                     </div>
 
-                    <div className="usersegment useractive">
+                    <div className="usersegment">
                         Lorem Ipsum
                     </div>
 
-                    <div className="usersegment useractive">
+                    <div className="usersegment">
                         Lorem Ipsum
                     </div>
                 </div>
