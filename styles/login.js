@@ -91,6 +91,7 @@ color: #475F54;
     margin-top: 0.5rem;
     width: 550px;
     height: 60px;
+    padding-left: 20px;
 
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
