@@ -29,7 +29,9 @@ export default function Home({ name }) {
         await db.collection("chat").doc(chatid).onSnapshot(function(doc) {
             setText(doc.data().messages)
             var p = doc.data().messages.length
-            synthesizeSpeech(doc.data().messages[p - 1].message)
+            if(p > 0){
+                synthesizeSpeech(doc.data().messages[p - 1].message)
+            }
         })
       }, []);
 
