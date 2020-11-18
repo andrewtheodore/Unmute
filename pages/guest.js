@@ -15,7 +15,6 @@ export default function Home({ name }) {
     console.log(name)
     const [text, setText] = useState([])
     const [lastmsg, setLastmsg] = useState("")
-    const [button, setButton] = useState(true)
 
     useEffect(async() => {
         var db = fire.firestore()
@@ -31,7 +30,6 @@ export default function Home({ name }) {
     const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
 
     const fromMic = async() => {
-        setButton(false)
         let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
         let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
         var data = ""
@@ -44,7 +42,6 @@ export default function Home({ name }) {
             if (res == "") {
                 return
               }
-              console.log(name)
               var db = firebase.firestore()
               var data = {
                 from: name,

@@ -10,7 +10,6 @@ Home.getInitialProps = async (ctx) => {
 }
 
 export default function Home({ name }) {
-    console.log(name)
     const [text, setText] = useState([])
     const [msg, setMsg] = useState("")
     const [lastmsg, setLastmsg] = useState("")
@@ -101,9 +100,26 @@ export default function Home({ name }) {
                 synthesizer.close();
             });
     }
+    const SynthesizeSpeechWithParameter = (message) => {
+        const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
+        const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
+    
+        const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+        synthesizer.speakTextAsync(
+            message,
+            result => {
+                if (result) {
+                    // console.log(JSON.stringify(result));
+                }
+                synthesizer.close();
+            },
+            error => {
+                // console.log(error);
+                synthesizer.close();
+            });
+    }
 
     const EnterMessage = async(event) => {
-        console.log(event)
         var code = event.keyCode || event.which
         if (code === 13 && msg !== "") {
             await synthesizeSpeech()
@@ -123,6 +139,24 @@ export default function Home({ name }) {
                   messages: firebase.firestore.FieldValue.arrayUnion(data),
                 })
         }
+      }
+
+      const DefaultMessage = async(message) => {
+        await SynthesizeSpeechWithParameter(message)
+        var db = firebase.firestore()
+              var data = {
+                from: name,
+                message: message,
+                timestamp: Date.now(),
+              }
+              
+              let chatid = "1-2"
+              await db
+                .collection("chat")
+                .doc(chatid)
+                .update({
+                  messages: firebase.firestore.FieldValue.arrayUnion(data),
+                })
       }
 
       const GetTimeStamp = (date) => {    
@@ -231,7 +265,7 @@ export default function Home({ name }) {
                             </div>
                         </div>
                         <div className="rightchatsection">
-                            <div className="rightbox">
+                            <div className="rightbox" onClick={() => DefaultMessage("Excuse Me, I would like to talk")}>
                                 <div className="topbox">
                                     Excuse Me
                                 </div>
@@ -239,7 +273,7 @@ export default function Home({ name }) {
                                     Excuse Me, I would like to talk
                                 </div>
                             </div>
-                            <div className="rightbox">
+                            <div className="rightbox" onClick={() => DefaultMessage("Hello, nice to meet you all")}>
                                 <div className="topbox">
                                     Greetings
                                 </div>

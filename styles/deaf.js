@@ -288,6 +288,7 @@ margin-left: 1rem;
     height: 102px;
     margin-left: 24px;
     margin-top: 32px;
+    cursor: pointer;
 }
 
 .topbox{
