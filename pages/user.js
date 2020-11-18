@@ -164,7 +164,7 @@ export default function Home({ name }) {
                 })
       }
 
-      const GetTimeStamp = (date) => {    
+      const GetTimeStamp = (date) => {     
         var myDate = new Date(date)
         var minutes = myDate.getMinutes()
         var hour = myDate.getHours()
