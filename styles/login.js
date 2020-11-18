@@ -65,7 +65,7 @@ export const Style = styled.div`
     width: 920px;
     height: 690px;
 
-    margin-left: 100px;
+    margin-left: 40px;
     margin-top: 54px;
 }
 
