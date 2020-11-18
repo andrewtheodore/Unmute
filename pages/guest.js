@@ -28,10 +28,12 @@ export default function Home({ name }) {
         var text
         await db.collection("chat").doc(chatid).onSnapshot(function(doc) {
             setText(doc.data().messages)
-            var p = doc.data().messages.length
-            if(p > 0 && doc.data().messages[p - 1].from != name){
-                synthesizeSpeech(doc.data().messages[p - 1].message)
-            }
+            // var p = doc.data().messages.length
+            // console.log(name)
+            // console.log(doc.data().messages[p - 1].from)
+            // if(p > 0 && doc.data().messages[p - 1].from != name){
+            //     synthesizeSpeech(doc.data().messages[p - 1].message)
+            // }
         })
       }, []);
 

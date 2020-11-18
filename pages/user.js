@@ -127,13 +127,13 @@ export default function Home({ name }) {
     const EnterMessage = async(event) => {
         var code = event.keyCode || event.which
         if (code === 13 && msg !== "") {
-            // await synthesizeSpeech()
+            await synthesizeSpeech()
             var db = firebase.firestore()
             setMsg("")
               var data = {
                 from: name,
                 message: msg,
-                timestamp: Date.now(),
+                timestamp: Date.now()
               }
               
               let chatid = "1-2"
@@ -147,7 +147,7 @@ export default function Home({ name }) {
       }
 
       const DefaultMessage = async(message) => {
-        // await SynthesizeSpeechWithParameter(message)
+        await SynthesizeSpeechWithParameter(message)
         var db = firebase.firestore()
               var data = {
                 from: name,
