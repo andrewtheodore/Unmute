@@ -13,7 +13,7 @@ background-color: #FFFFFF;
     display: flex;
     flex-direction: row;
     padding-top: 1.5rem;
-    height: 70px;
+    height: 109px;
     background-color: #f6fff8;
     width: 100%;
 }

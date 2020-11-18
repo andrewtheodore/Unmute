@@ -7,7 +7,7 @@ background-color: #E5E5E5;
     display: flex;
     flex-direction: row;
     padding-top: 1.5rem;
-    height: 139px;
+    height: 99px;
     background-color: #f6fff8;
 }
 
