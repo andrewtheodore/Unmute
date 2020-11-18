@@ -233,7 +233,7 @@ margin-top: 37px;
 }
 
 .rightbubblechat{
-    width: 700px;
+    width: 650px;
 /* height: 50px; */
     text-align: right;
     background: #CCE3DE;
