@@ -209,16 +209,16 @@ export default function Home({ name }) {
                     </div>
 
                     <div className="usersegment">
+                        Meeting with Friends
+                    </div>
+
+                    {/* <div className="usersegment">
                         Lorem Ipsum
                     </div>
 
                     <div className="usersegment">
                         Lorem Ipsum
-                    </div>
-
-                    <div className="usersegment">
-                        Lorem Ipsum
-                    </div>
+                    </div> */}
                 </div>
                 <div className="chatsection">
                     <div className="chatwrappertitle">
