@@ -23,17 +23,14 @@ export default function Home() {
                         />
                         <input className="usernamebox" placeholder="Password" type="password"
                         /> 
-                        <div className="loginboxmodal">
-
-                            <Link href={{
-                                pathname: "/user",
-                                query: { name: username },
-                                }}>
-                                    <div>
-                                        Login
-                                    </div>
-                            </Link>
-                        </div>
+                        <Link href={{
+                            pathname: "/user",
+                            query: { name: username },
+                            }}>
+                                <div  className="loginboxmodal">
+                                    Login
+                                </div>
+                        </Link>
                         <div className="linecontainer">
                             <div className="line"></div>
                             <div className="or">Or</div>
