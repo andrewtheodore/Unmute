@@ -213,7 +213,7 @@ margin-top: 16px;
 }
 
 .bubblechat{
-    margin-top: 12px;
+    margin-bottom: 32px;
     height: auto;
     border-radius: 24px;
     padding: 1rem;
@@ -287,6 +287,7 @@ margin-left: 1rem;
     height: 600px;
     overflow: auto;
     background-color: #e8f6eb;
+    padding-top: 32px;
 }
 
 .rightchatsection{

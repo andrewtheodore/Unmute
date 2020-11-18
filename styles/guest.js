@@ -321,4 +321,8 @@ color: #6B9080;
 
 }
 
+.timeleft{
+    text-align: left;
+}
+
 `

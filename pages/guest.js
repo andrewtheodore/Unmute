@@ -131,7 +131,7 @@ export default function Home({ name }) {
                             <div>
                                 {data.message}
                             </div>
-                            <div className="time">
+                            <div className="time timeleft">
                                 {GetTimeStamp(data.timestamp)}
                             </div>    
                         </div>
