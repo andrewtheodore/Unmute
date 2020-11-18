@@ -21,7 +21,7 @@ background-color: #E5E5E5;
 
     color: #000000;
 
-    margin-left: 1106px;
+    margin-left: 60%;
 
     display: flex;
     flex-direction: row;
@@ -210,6 +210,7 @@ margin-left: 658px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 
     margin-left: 41px;
+    
 }
 
 
@@ -230,7 +231,7 @@ margin-left: 658px;
 .rightbubblechat{
     width: 700px;
 /* height: 50px; */
-
+    text-align: right;
     background: #CCE3DE;
     border-radius: 8px;
 }

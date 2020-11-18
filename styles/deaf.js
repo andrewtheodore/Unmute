@@ -13,7 +13,7 @@ background-color: #E5E5E5;
     display: flex;
     flex-direction: row;
     padding-top: 1.5rem;
-    height: 139px;
+    height: 109px;
     background-color: #f6fff8;
 }
 
@@ -26,8 +26,7 @@ background-color: #E5E5E5;
     line-height: 50px;
 
     color: #000000;
-
-    margin-left: 1106px;
+    margin-left: 58%;
 
     display: flex;
     flex-direction: row;
@@ -65,7 +64,7 @@ background-color: #E5E5E5;
 
     .leftpipe{
         width: 97px;
-        height: 942px;
+        height: auto;
         background: #A4C3B2;
         padding-top: 16px;
 
@@ -97,7 +96,7 @@ background-color: #E5E5E5;
     }
 
     .secondwrapper{
-        width: 338px;
+        width: 18%;
         height: auto;
 
         background: #FFFFFF;
@@ -182,6 +181,7 @@ margin-top: 16px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
 
     margin-left: 41px;
+    
 }
 
 .chatsection{
@@ -197,7 +197,7 @@ margin-top: 16px;
     width: 500px;
 
     background: #CCE3DE;
-    border-radius: 8px;
+    border-radius: 8px;text-align: right;
 }
 
 .bubblechat{
@@ -233,7 +233,7 @@ padding-left: 2rem;
     line-height: 85px;
     color: #000000;
 
-    margin-left: 608px;
+    margin-left: 508px;
 }
 
 .chatwrappertitle{
@@ -271,13 +271,13 @@ margin-left: 1rem;
 }
 
 .chatt{
-    width: 1100px;
+    width: 1000px;
     height: 600px;
     overflow: auto;
 }
 
 .rightchatsection{
-    height: 800px;
+    height: auto;
 
     background-color: #ffffff;
 }
@@ -331,8 +331,8 @@ height: 80px;
 
 .inputuser{
     margin: 1rem;
-    width: 1043px;
-height: 99px;
+    width: 983px;
+    height: 99px;
 
 white-space: pre-wrap;
 
