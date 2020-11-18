@@ -21,8 +21,8 @@ export default function Home() {
                             value={username}
                             onChange={() => setUsername(event.target.value)}
                         />
-                        <input className="usernamebox" placeholder="Password"
-                        />
+                        <input className="usernamebox" placeholder="Password" type="password"
+                        /> 
                         <div className="loginboxmodal">
 
                             <Link href={{
