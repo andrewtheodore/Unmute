@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "eslint-plugin-react-hooks": "0.0.0-8e5adfbd7",
+    "firebase": "^8.0.2",
     "jquery": "^3.5.1",
     "microsoft-cognitiveservices-speech-sdk": "^1.14.1",
     "next": "10.0.1",

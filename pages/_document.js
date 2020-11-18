@@ -44,7 +44,6 @@ export default class MyDocument extends Document {
           <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script> */}
           <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js" />
-          <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
           <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
           <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
           <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>

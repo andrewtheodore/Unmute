@@ -1,18 +1,55 @@
 import Head from 'next/head'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Style } from "../styles/guest"
 import axios from 'axios';
+import fire from "../config/fire-config"
+import firebase from "firebase/app"
+import "firebase/firestore"
 
-export default function Home() {
+export default function Home({ InitText }) {
     const [text, setText] = useState([])
     const [lastmsg, setLastmsg] = useState("")
     const [button, setButton] = useState(true)
 
+    useEffect(async() => {
+        var db = fire.firestore()
+        let data_message = []
+        let chatid = "1-2"
+        var text
+        await db.collection("chat").doc(chatid).onSnapshot(function(doc) {
+        // setMessage(doc.data().messages)
+        // console.log(doc.data().messages)
+        setText(doc.data().messages)
+        // text = doc.data().messages
+        })
+      }, []);
+
     const sdk = require("microsoft-cognitiveservices-speech-sdk");
     const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
 
+    const sendMessage = async (id, msg) => {
+        if (msg == "") {
+          return
+        }
+        var db = firebase.firestore()
+        var data = {
+          from: coachID,
+          message: msg,
+          timestamp: Date.now(),
+        }
+        
+        let chatid = coachID + "-" + id
+        await db
+          .collection("chats")
+          .doc(chatid)
+          .update({
+            messages: firebase.firestore.FieldValue.arrayUnion(data),
+          })
+        await getMessages(id)
+        setUserMessage("")
+      }
+
     const fromMic = async() => {
-        console.log(button)
         setButton(false)
         let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
         let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
@@ -22,36 +59,25 @@ export default function Home() {
         recognizer.recognizeOnceAsync(async (result) => {
             data = `${result.text}`
             var res = `${result.text}`
-            var teks = [...text];
-            var obj = { msg: res, user: 1}
-            teks.push(obj)
-            setText(teks)
-            console.log(`RECOGNIZED: Text=${result.text}`);
-            await axios
-                .post("https://unmuteapi.azurewebsites.net/send_text", 
-                    "converted_text=" + res
-                )
-                .then((resp) => {
-                    console.log(resp.data)
-                })
-                .catch((error) => {})
-                .finally(() => {})
-        });
-        // console.log("asdfasdf")
-        // console.log(data)
 
-        // if(data != ""){
-        //     console.log("posted")
-        //     await axios
-        //         .post("https://unmuteapi.azurewebsites.net/send_text", {
-        //             converted_text: data
-        //         })
-        //         .then((resp) => {
-        //             console.log(resp.data)
-        //         })
-        //         .catch((error) => {})
-        //         .finally(() => {})
-        // }
+            if (res == "") {
+                return
+              }
+              var db = firebase.firestore()
+              var data = {
+                from: "1",
+                message: res,
+                timestamp: Date.now(),
+              }
+              
+              let chatid = "1-2"
+              await db
+                .collection("chat")
+                .doc(chatid)
+                .update({
+                  messages: firebase.firestore.FieldValue.arrayUnion(data),
+                })
+        });
     }
 
     const synthesizeSpeech = (mess) => {
@@ -73,30 +99,8 @@ export default function Home() {
             });
     }
 
-    const passtext = async() => {
-        var data
-        console.log("passtext")
-        await axios.get("https://unmuteapi.azurewebsites.net/pass_text")
-        .then((resp) => {
-            console.log(resp.data)
-            data = resp.data
-        })
-        .catch((error) => {})
-        .finally(() => {})
-        if(data != lastmsg && data != undefined){
-            var obj = { msg: data, user: 0}
-            var teks = [...text, obj];
-            // teks.concat(obj)
-            console.log(data)
-            console.log(lastmsg)
-            synthesizeSpeech(data)
-            setText(teks)
-            setLastmsg(data)
-        }
-    }
-
     return (
-        <Style  onClick={() => passtext()} >
+        <Style >
             <div className="topnavbar">
                 <div className="navbar">
                     <img src="logo_v1 1.png" className="imagelogo" /> 
@@ -112,15 +116,15 @@ export default function Home() {
             <div className="midwrapper">
                 {text.map((data, index) => (
                     <div>
-                        {data.user == 1 ? 
+                        {data.from == 1 ? 
                             <div className="rightchatbubble" key={index}>
-                            <div className="bubblechat rightbubblechat">
-                                {data.msg}
+                                <div className="bubblechat rightbubblechat">
+                                    {data.message}
+                                </div>
                             </div>
-                        </div>
                         :
                         <div className="bubblechat leftbubblechat"> 
-                            {data.msg}
+                            {data.message}
                         </div>
                         }
                     </div>
