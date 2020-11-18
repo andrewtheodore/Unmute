@@ -226,7 +226,7 @@ margin-top: 37px;
 }
 .midwrapper{
     padding-top: 50px;
-    height: 680px;
+    height: 630px;
     overflow: auto;
 
     background-color: #E8F6EB;
