@@ -28,6 +28,8 @@ export default function Home({ name }) {
         var text
         await db.collection("chat").doc(chatid).onSnapshot(function(doc) {
             setText(doc.data().messages)
+            var p = doc.data().messages.length
+            synthesizeSpeech(doc.data().messages[p - 1].message)
         })
       }, []);
 
@@ -120,7 +122,7 @@ export default function Home({ name }) {
                                     <div>
                                         {data.message}
                                     </div>
-                                    <div className="time">
+                                    <div className="time  timeleft">
                                         {GetTimeStamp(data.timestamp)}
                                     </div>    
                                 </div>
@@ -131,7 +133,7 @@ export default function Home({ name }) {
                             <div>
                                 {data.message}
                             </div>
-                            <div className="time timeleft">
+                            <div className="time">
                                 {GetTimeStamp(data.timestamp)}
                             </div>    
                         </div>

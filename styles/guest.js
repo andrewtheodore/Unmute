@@ -242,7 +242,7 @@ margin-top: 37px;
 }
 
 .bubblechat{
-    margin-top: 12px;
+    margin-bottom: 32px;
     height: auto;
     border-radius: 24px;
     padding: 1rem;
