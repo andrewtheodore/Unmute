@@ -84,7 +84,7 @@ color: #475F54;
 
 .leftwrapper{
     margin-top: 184px;
-    margin-left: 250px;
+    margin-left: 200px;
 }
 
 .fullnameinput{
