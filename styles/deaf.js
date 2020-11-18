@@ -65,7 +65,7 @@ background-color: #FFFFFF;
 
     .leftpipe{
         width: 97px;
-        height: auto;
+        height: 88vh;
         background: #A4C3B2;
         padding-top: 16px;
 
@@ -284,7 +284,7 @@ margin-left: 1rem;
 
 .chatt{
     width: 950px;
-    height: 652px;
+    height: 612px;
     overflow: auto;
     background-color: #e8f6eb;
     padding-top: 32px;
