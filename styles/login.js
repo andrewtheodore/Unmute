@@ -32,6 +32,9 @@ height: 100rem;
     flex-direction: row;
 
     margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
 }
 .navbardesc{
     margin-left: 3rem;
@@ -48,7 +51,10 @@ height: 100rem;
     border-radius: 8px;
 
     color: white;
+
+    cursor: pointer;
 }
+
 
 .loginbody{
     display: flex;
@@ -285,5 +291,133 @@ height: 65px;
     display: flex;
     justify-content: center;
   }
+
+
+.usernamebox{
+    width: 550px;
+    height: 60px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+
+    display: flex;
+    align-items: center;
+
+    color: #605E5C;
+}
+
+.loginboxmodal{
+    width: 260px;
+    height: 60px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background: #6B9080;
+    border-radius: 8px;
+    box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.1);
+
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .linecontainer{
+        display: flex;
+
+        width: 560px;
+        height: 60px;
+    
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .line{
+        width: 239px;
+        height: 0px;
+        border: 1px solid #6B9080;
+        margin-top: 12px;
+    }
+
+    .or{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        color: #605E5C;
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+
+    .appbutton{
+        width: 550px;
+        height: 64px;
+
+        background: #BED3C8;
+        border-radius: 8px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        padding-left: 40px;
+        margin-bottom: 28px;
+    }
+
+    .applogo{
+        align-items: center;
+        text-align: center;
+
+        
+    }
+
+    .signin{
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        color: #605E5C;
+        margin-left: 40px;
+    }
+
+    .account{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+
+color: #465F54;
+
+    }
 
 `
