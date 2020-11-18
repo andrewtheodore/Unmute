@@ -4,6 +4,7 @@ import axios from 'axios';
 import fire from "../config/fire-config"
 import firebase from "firebase/app"
 import "firebase/firestore"
+import $ from "jquery"
 
 Home.getInitialProps = async (ctx) => {
     return { name : ctx.query.name }
@@ -16,6 +17,10 @@ export default function Home({ name }) {
 
     const sdk = require("microsoft-cognitiveservices-speech-sdk");
     // const speechConfig = sdk.SpeechConfig.fromSubscription("a0920a51bd144d94b7011c724526afb2", "eastus");
+
+    useEffect(() => {
+        $("#messagebody").scrollTop($("#messagebody")[0].scrollHeight)
+      })
 
     useEffect(async() => {
         var db = fire.firestore()
@@ -229,7 +234,7 @@ export default function Home({ name }) {
                     </div>
                     <div className="chatright">
                         <div>
-                            <div className="chatt">
+                            <div className="chatt" id="messagebody">
                                 {text.map((data, index) => (
                                     <div>
                                         {data.from == name ? 

@@ -14,6 +14,7 @@ background-color: #FFFFFF;
     padding-top: 1.5rem;
     height: 109px;
     background-color: #f6fff8;
+    width: 100%;
 }
 
 .navbartext{

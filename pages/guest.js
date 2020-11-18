@@ -6,6 +6,7 @@ import fire from "../config/fire-config"
 import firebase from "firebase/app"
 import "firebase/firestore"
 import { useRouter } from 'next/router'
+import $ from "jquery"
 
 Home.getInitialProps = async (ctx) => {
     return { name : ctx.query.name }
@@ -15,6 +16,10 @@ export default function Home({ name }) {
     console.log(name)
     const [text, setText] = useState([])
     const [lastmsg, setLastmsg] = useState("")
+
+    useEffect(() => {
+        $("#messagebody").scrollTop($("#messagebody")[0].scrollHeight)
+      })
 
     useEffect(async() => {
         var db = fire.firestore()
@@ -105,7 +110,7 @@ export default function Home({ name }) {
                 </div>
             </div>
 
-            <div className="midwrapper">
+            <div className="midwrapper" id="messagebody">
                 {text.map((data, index) => (
                     <div>
                         {data.from == name ? 
